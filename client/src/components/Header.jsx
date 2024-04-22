@@ -25,7 +25,7 @@ export default function Header() {
   }, [location.search]);
   const handleSignout = async () => {
     try {
-      const res = await fetch("/api/user/signout", {
+      const res = await fetch("/blog/api/user/signout", {
         method: "POST",
       });
       const data = await res.json();
@@ -109,13 +109,21 @@ export default function Header() {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link active={path === "/"} as={"div"}>
+        <Navbar.Link className="text-base" active={path === "/"} as={"div"}>
           <Link to="/">Home</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/about"} as={"div"}>
+        <Navbar.Link
+          className="text-base"
+          active={path === "/about"}
+          as={"div"}
+        >
           <Link to="/about">About</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/projects"} as={"div"}>
+        <Navbar.Link
+          className="text-base"
+          active={path === "/projects"}
+          as={"div"}
+        >
           <Link to="/projects">Projects</Link>
         </Navbar.Link>
       </Navbar.Collapse>

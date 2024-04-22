@@ -6,12 +6,11 @@ import authRoutes from "./routes/auth.route.js";
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from "./routes/comment.route.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 dotenv.config();
 
 mongoose
-  .connect(
-    "mongodb+srv://adung:240402@blog.tqk9u3z.mongodb.net/Blog?retryWrites=true&w=majority&appName=Blog"
-  )
+  .connect(process.env.MONGO)
   .then(() => {
     console.log("MongoDb is connected");
   })
@@ -20,6 +19,12 @@ mongoose
   });
 const app = express();
 
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL, // cho phép URL ở client lấy được data ở server
+    methods: ["POST", "GET", "PUT", "DELETE"], // giới hạn 4 method
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 app.listen(3001, () => {

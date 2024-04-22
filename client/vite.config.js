@@ -5,11 +5,12 @@ import react from "@vitejs/plugin-react-swc";
 export default defineConfig({
   server: {
     proxy: {
-      "/api": {
-        target: "https://devblogs.mine.bz/blog/",
+      "/blog": {
+        target: "https://devblogs.mine.bz/",
         secure: false,
       },
     },
   },
+
   plugins: [react()],
 });

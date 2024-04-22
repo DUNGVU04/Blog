@@ -22,7 +22,7 @@ export default function CallToAction() {
         </Button>
       </div>
       <div className="p-7 flex-1">
-        <img src="https://getwallpapers.com/wallpaper/full/6/7/d/491909.jpg" />
+        <img src="https://e0.pxfuel.com/wallpapers/226/1020/desktop-wallpaper-java-programming-logo.jpg" />
       </div>
     </div>
   );
