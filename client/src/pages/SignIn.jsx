@@ -10,7 +10,10 @@ import {
 } from "../redux/user/userSlice";
 import OAuth from "../components/OAuth";
 export default function SignIn() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    email: "adung0477@gmail.com",
+    password: "240402",
+  });
   const { loading, error: errorMessage } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,6 +33,7 @@ export default function SignIn() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
+      console.log("data", data);
       if (data.success === false) {
         dispatch(signInFailure(data.message));
       }
@@ -70,6 +74,7 @@ export default function SignIn() {
                 placeholder="name@company.com"
                 id="email"
                 onChange={handleChange}
+                value="adung0477@gmail.com"
               />
             </div>
             <div>
@@ -79,6 +84,7 @@ export default function SignIn() {
                 placeholder="********"
                 id="password"
                 onChange={handleChange}
+                value="240402"
               />
             </div>
             <Button
